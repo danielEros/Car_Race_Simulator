@@ -27,7 +27,16 @@ class Race {
                 Car.setSpeedLimit(110);
             }
             for (Vehicle vehicle: vehicleArray){
-                vehicle.moveForAnHour();
+                if (vehicle instanceof Car){
+                    Car car = (Car) vehicle;
+                    car.moveForAnHour();
+                } else  if (vehicle instanceof MotorCycle){
+                    MotorCycle motorCycle = (MotorCycle) vehicle;
+                    motorCycle.moveForAnHour();
+                } else if (vehicle instanceof Truck){
+                    Truck truck = (Truck) vehicle;
+                    truck.moveForAnHour();
+                }
             }
         }
     }
@@ -37,7 +46,7 @@ class Race {
                 second.getDistanceTraveled().compareTo(first.getDistanceTraveled()));
         for (Vehicle vehicle: vehicleArray){
             System.out.println(vehicle.getClass().getSimpleName() + " type " +
-                    vehicle.name + " traveled " + vehicle.distanceTraveled + " km.");
+                    vehicle.getName() + " traveled " + vehicle.getDistanceTraveled() + " km.");
         }
     }
 

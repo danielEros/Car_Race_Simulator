@@ -9,6 +9,8 @@ class Vehicle {
         return distanceTraveled;
     }
 
-    void moveForAnHour(){}
+    String getName(){
+        return name;
+    }
 
 }

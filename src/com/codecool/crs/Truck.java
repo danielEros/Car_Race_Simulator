@@ -1,5 +1,7 @@
 package com.codecool.crs;
 
+import static com.codecool.crs.Race.randBetween;
+
 public class Truck extends Vehicle {
 
     private int normalSpeed = 100;
@@ -7,8 +9,7 @@ public class Truck extends Vehicle {
     private static int chanceOfBreakDown = 5;
 
     void moveForAnHour(){
-        int randomPercent = (int) (Math.random() * 100 + 1);
-        if (breakdownTurnsLeft == 0 && randomPercent <= chanceOfBreakDown){
+        if (breakdownTurnsLeft == 0 && randBetween(1, 100) <= chanceOfBreakDown){
             breakdownTurnsLeft = 2;
         }
         if (breakdownTurnsLeft == 0){
@@ -19,8 +20,7 @@ public class Truck extends Vehicle {
     }
 
     Truck(){
-        int randomNumber = (int) (Math.random() * 1001);
-        name = Integer.toString(randomNumber);
+        name = Integer.toString(randBetween(0, 1000));
     }
 
 }

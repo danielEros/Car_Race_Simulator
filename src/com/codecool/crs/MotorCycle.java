@@ -1,6 +1,7 @@
 package com.codecool.crs;
 
 import static com.codecool.crs.Race.isRaining;
+import static com.codecool.crs.Race.randBetween;
 
 class MotorCycle extends Vehicle {
 
@@ -8,8 +9,7 @@ class MotorCycle extends Vehicle {
     static int nameNumber = 1;
 
     void moveForAnHour(){
-        int randomSpeedDecrement = (int) (Math.random() * 46 + 5);
-        distanceTraveled += (isRaining ? normalSpeed - randomSpeedDecrement : normalSpeed);
+        distanceTraveled += (isRaining ? normalSpeed - randBetween(5, 50) : normalSpeed);
     }
 
     MotorCycle(){
