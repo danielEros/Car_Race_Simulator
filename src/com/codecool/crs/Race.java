@@ -20,18 +20,13 @@ class Race {
 
     static void simulateRace(){
         for(int i=0; i<50; i++){
-            int randomPercent = (int) (Math.random() * 100 + 1);
-            isRaining = randomPercent <= chanceOfRain;
-
+            isRaining = randBetween(1, 100) <= chanceOfRain;
+            if (isRaining) {
+                Car.setSpeedLimit(70);
+            } else {
+                Car.setSpeedLimit(110);
+            }
             for (Vehicle vehicle: vehicleArray){
-                if(vehicle instanceof Car){
-                    Car car = (Car) vehicle;
-                    if (isRaining) {
-                        car.setSpeedLimit(70);
-                    } else {
-                        car.setSpeedLimit(110);
-                    }
-                }
                 vehicle.moveForAnHour();
             }
         }
@@ -44,6 +39,10 @@ class Race {
             System.out.println(vehicle.getClass().getSimpleName() + " type " +
                     vehicle.name + " traveled " + vehicle.distanceTraveled + " km.");
         }
+    }
+
+    static int randBetween(int min, int max){
+        return (int) (Math.random() * (max - min + 1) + min);
     }
 
     public static void main(String[] args) {

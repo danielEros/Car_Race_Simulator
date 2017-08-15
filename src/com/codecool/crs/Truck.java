@@ -8,8 +8,7 @@ public class Truck extends Vehicle {
 
     void moveForAnHour(){
         int randomPercent = (int) (Math.random() * 100 + 1);
-        //TODO: the following is not entirely correct
-        if (randomPercent <= chanceOfBreakDown){
+        if (breakdownTurnsLeft == 0 && randomPercent <= chanceOfBreakDown){
             breakdownTurnsLeft = 2;
         }
         if (breakdownTurnsLeft == 0){

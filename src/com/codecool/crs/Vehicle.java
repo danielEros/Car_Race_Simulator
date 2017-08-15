@@ -6,7 +6,7 @@ class Vehicle {
     String name;
 
     Integer getDistanceTraveled(){
-        return (Integer) distanceTraveled;
+        return distanceTraveled;
     }
 
     void moveForAnHour(){}
